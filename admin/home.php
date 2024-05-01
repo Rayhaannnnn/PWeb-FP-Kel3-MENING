@@ -68,7 +68,7 @@ if(!isset($_SESSION["user"]))
                         <a href="messages.php"><i class="fa fa-desktop"></i> News Letters</a>
                     </li>
 					<li>
-                        <a href="roombook.php"><i class="fa fa-bar-chart-o"></i> Room Booking</a>
+                        <a href="roombook.php"><i class="fa fa-bar-chart-o"></i> Meal Booking</a>
                     </li>
                     <li>
                         <a href="payment.php"><i class="fa fa-qrcode"></i> Payment</a>
@@ -96,14 +96,14 @@ if(!isset($_SESSION["user"]))
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Status <small>Room Booking </small>
+                            Status <small>Meal Booking </small>
                         </h1>
                     </div>
                 </div>
                 <!-- /. ROW  -->
 				<?php
 						include ('db.php');
-						$sql = "select * from roombook";
+						$sql = "select * from mealbook";
 						$re = mysqli_query($con,$sql);
 						$c =0;
 						while($row=mysqli_fetch_array($re) )
@@ -140,7 +140,7 @@ if(!isset($_SESSION["user"]))
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
 											<button class="btn btn-default" type="button">
-												 New Room Bookings  <span class="badge"><?php echo $c ; ?></span>
+												 New Meal Bookings  <span class="badge"><?php echo $c ; ?></span>
 											</button>
 											</a>
                                         </h4>
@@ -158,11 +158,11 @@ if(!isset($_SESSION["user"]))
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Country</th>
-											<th>Room</th>
-											<th>Bedding</th>
-											<th>Meal</th>
-											<th>Check In</th>
-											<th>Check Out</th>
+											<th>Type Of Meal</th>
+											<th>Meal Type</th>
+											<th>Calories</th>
+											<th>Start</th>
+											<th>End</th>
 											<th>Status</th>
 											<th>More</th>
 											
@@ -171,7 +171,7 @@ if(!isset($_SESSION["user"]))
                                     <tbody>
                                         
 									<?php
-									$tsql = "select * from roombook";
+									$tsql = "select * from mealbook";
 									$tre = mysqli_query($con,$tsql);
 									while($trow=mysqli_fetch_array($tre) )
 									{	
@@ -183,9 +183,9 @@ if(!isset($_SESSION["user"]))
 												<th>".$trow['FName']." ".$trow['LName']."</th>
 												<th>".$trow['Email']."</th>
 												<th>".$trow['Country']."</th>
-												<th>".$trow['TRoom']."</th>
-												<th>".$trow['Bed']."</th>
+												<th>".$trow['Tmeal']."</th>
 												<th>".$trow['Meal']."</th>
+												<th>".$trow['Cal']."</th>
 												<th>".$trow['cin']."</th>
 												<th>".$trow['cout']."</th>
 												<th>".$trow['stat']."</th>
@@ -209,7 +209,7 @@ if(!isset($_SESSION["user"]))
                                 </div>
 								<?php
 								
-								$rsql = "SELECT * FROM `roombook`";
+								$rsql = "SELECT * FROM `mealbook`";
 								$rre = mysqli_query($con,$rsql);
 								$r =0;
 								while($row=mysqli_fetch_array($rre) )
@@ -232,7 +232,7 @@ if(!isset($_SESSION["user"]))
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="collapsed">
 											<button class="btn btn-primary" type="button">
-												 Booked Rooms  <span class="badge"><?php echo $r ; ?></span>
+												 Booked Meals  <span class="badge"><?php echo $r ; ?></span>
 											</button>
 											
 											</a>
@@ -241,7 +241,7 @@ if(!isset($_SESSION["user"]))
                                     <div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
                                         <div class="panel-body">
 										<?php
-										$msql = "SELECT * FROM `roombook`";
+										$msql = "SELECT * FROM `mealbook`";
 										$mre = mysqli_query($con,$msql);
 										
 										while($mrow=mysqli_fetch_array($mre) )
@@ -261,7 +261,7 @@ if(!isset($_SESSION["user"]))
 														<a href=show.php?sid=".$fid ."><button  class='btn btn-primary btn' data-toggle='modal' data-target='#myModal'>
 													Show
 													</button></a>
-															".$mrow['TRoom']."
+															".$mrow['Tmeal']."
 														</div>
 													</div>	
 											</div>";

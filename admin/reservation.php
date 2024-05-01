@@ -148,7 +148,7 @@ include('db.php')
                               </div>
 							  <div class="form-group">
                                             <label>No.of Age *</label>
-                                            <select name="nroom" class="form-control" required>
+                                            <select name="Age" class="form-control" required>
 												<option value selected ></option>
                                                 <option value="0-5 Tahun">0-5 Tahun</option>
                                                 <option value="5-15 Tahun">5-15 Tahun</option>
@@ -166,7 +166,7 @@ include('db.php')
 							 
 							  <div class="form-group">
                                             <label>Calorie Target</label>
-                                            <select name="meal" class="form-control"required>
+                                            <select name="Calories" class="form-control"required>
 												<option value selected ></option>
                                                 <option value="500-1000 Calories">500-1000 Calories</option>
                                                 <option value="1000-2000 Calories">1000-2000 Calories</option>
@@ -213,8 +213,8 @@ include('db.php')
 							else
 							{
 							
-									$con=mysqli_connect("localhost","root","","hotel");
-									$check="SELECT * FROM roombook WHERE email = '$_POST[email]'";
+									$con=mysqli_connect("localhost","root","","mening");
+									$check="SELECT * FROM mealbook WHERE email = '$_POST[email]'";
 									$rs = mysqli_query($con,$check);
 									$data = mysqli_fetch_array($rs, MYSQLI_NUM);
 									if($data[0] > 1) {
@@ -225,7 +225,7 @@ include('db.php')
 									else
 									{
 										$new ="Not Conform";
-										$newUser="INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
+										$newUser="INSERT INTO `mealbook`(`Title`, `FName`, `LName`, `Email`, `National`, `Country`, `Phone`, `Tmeal`, `meal`, `Age`, `Cal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[tmeal]','$_POST[meal]','$_POST[age]','$_POST[cal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
 										if (mysqli_query($con,$newUser))
 										{
 											echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";

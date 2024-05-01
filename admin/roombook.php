@@ -18,7 +18,7 @@ if(!isset($_SESSION["user"]))
 				$id = $_GET['rid'];
 				
 				
-				$sql ="Select * from roombook where id = '$id'";
+				$sql ="Select * from mealbook where id = '$id'";
 				$re = mysqli_query($con,$sql);
 				while($row=mysqli_fetch_array($re))
 				{
@@ -29,11 +29,11 @@ if(!isset($_SESSION["user"]))
 					$nat = $row['National'];
 					$country = $row['Country'];
 					$Phone = $row['Phone'];
-					$troom = $row['TRoom'];
-					$nroom = $row['NRoom'];
-					$bed = $row['Bed'];
-					$non = $row['NRoom'];
-					$meal = $row['Meal'];
+					$troom = $row['Tmeal'];
+					$nroom = $row['Age'];
+					$bed = $row['Meal'];
+					$non = $row['Age'];
+					$meal = $row['Cal'];
 					$cin = $row['cin'];
 					$cout = $row['cout'];
 					$sta = $row['stat'];
